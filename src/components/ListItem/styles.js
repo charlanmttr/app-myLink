@@ -1,6 +1,6 @@
 import styled from 'styled-components/native'
 
-export const ItemArea = styled.View`
+export const ItemArea = styled.TouchableOpacity`
     flex: 1;
     flex-direction: row;
     padding: 10px;
@@ -9,11 +9,9 @@ export const ItemArea = styled.View`
     border-radius: 7px;
 `;
 
-export const LinkTextArea = styled.View`
-    padding-left: 10px;
-`;
-
 export const LinkText = styled.Text`
     font-size: 20px;
     color: #FFF;
+    padding-left: 10px;
+    padding-right: 20px;
 `;
