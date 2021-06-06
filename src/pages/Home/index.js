@@ -3,7 +3,9 @@ import { TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView, Platform, Mod
 import { Feather } from '@expo/vector-icons'
 import { LinearGradient } from 'expo-linear-gradient'
 import { ContainerLogo, Logo, ContainerContent, Title, Subtitle, ContainerInput, BoxIcon, Input, ButtonLink, ButtonLinkText } from './styles'
+
 import api from '../../services/api'
+import { saveLink } from '../../utils/storeLinks'
 
 import StatusBarPage from '../../components/StatusBarPage'
 import Menu from '../../components/Menu'
@@ -27,6 +29,8 @@ export default function Home() {
             Keyboard.dismiss();
             setLoading(false)
             setInput('')
+
+            saveLink('mylinkapp.links', response.data )
 
             setData(response.data)
             setModalVisible(true)

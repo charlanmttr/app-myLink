@@ -14,4 +14,16 @@ export const Title = styled.Text`
     color: #FFF;
 `;
 
+export const ContainerEmpty = styled.View`
+    padding: 10px;
+    margin: 7px 20px;
+    border-radius: 7px;
+    background-color: rgba(255,255,255, 0.30);
+`;  
+
+export const WarningText = styled.Text`
+    color: white;
+    font-size: 15px;
+`;
+
 export const ListLinks = styled.FlatList``;
