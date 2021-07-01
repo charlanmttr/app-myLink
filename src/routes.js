@@ -1,13 +1,25 @@
 import React from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer'
+import { createStackNavigator } from '@react-navigation/stack'
 import { Ionicons } from '@expo/vector-icons'
 
 import Home from './pages/Home'
 import MyLinks from './pages/MyLinks'
+import WebView from './pages/WebView'
 
 const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator()
 
 export default function Routes() {
+    return (
+        <Stack.Navigator initialRouteName="DrawerRoutes">
+            <Stack.Screen name="DrawerRoutes" component={DrawerRoutes} options={{ headerShown: false }} />
+            <Stack.Screen name="WebView" component={WebView} options={{ title: '' }} />
+        </Stack.Navigator>
+    )
+}
+
+function DrawerRoutes() {
     return (
         <Drawer.Navigator
             drawerContentOptions={{
@@ -50,3 +62,4 @@ export default function Routes() {
         </Drawer.Navigator>
     )
 }
+

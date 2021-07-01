@@ -12,7 +12,7 @@ import Menu from '../../components/Menu'
 import ModalLink from '../../components/ModalLink'
 
 
-export default function Home() {
+export default function Home({ navigation }) {
     const [loading, setLoading] = useState(false)
     const [input, setInput] = useState('');
     const [modalVisible, setModalVisible] = useState(false)
@@ -54,13 +54,13 @@ export default function Home() {
                     barStyle="light-content"
                     backgroundColor="#1ddbb9"
                 />
+
                 <Menu />
 
                 <KeyboardAvoidingView
                     behavior={Platform.OS === 'android' ? 'padding' : 'position'}
                     enabled
                 >
-
                     <ContainerLogo>
                         <Logo source={require('../../assets/logo.png')} />
                     </ContainerLogo>
@@ -69,7 +69,7 @@ export default function Home() {
                         <Subtitle>Cole seu link aqui para encurtar</Subtitle>
                         <ContainerInput>
                             <BoxIcon>
-                                <Feather name="link" size={12} color='#FFF' />
+                                <Feather name="link" size={20} color='#FFF' />
                             </BoxIcon>
                             <Input
                                 placeholder="Cole seu link aqui."
@@ -91,7 +91,6 @@ export default function Home() {
                             }
                         </ButtonLink>
                     </ContainerContent>
-
                 </KeyboardAvoidingView>
 
                 <Modal
@@ -102,9 +101,9 @@ export default function Home() {
                     <ModalLink 
                         onClose={() => setModalVisible(false)}
                         data={data}
+                        navigation={navigation}
                     />
                 </Modal>
-
             </LinearGradient>
         </TouchableWithoutFeedback>
     )

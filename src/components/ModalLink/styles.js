@@ -23,9 +23,13 @@ export const LinkArea = styled.View`
     justify-content: center;
 `;
 
+export const ActionArea = styled.View`
+    flex-direction: row;
+`;
+
 export const ShortLinkArea = styled.TouchableOpacity`
     height: 45px;
-    width: 100%;
+    flex: 1;
     background-color: #172742;
     border-radius: 7px;
     flex-direction: row;
@@ -35,7 +39,7 @@ export const ShortLinkArea = styled.TouchableOpacity`
 `;
 
 export const ShortLinkUrl = styled.Text`
-    width: 90%;
+    width: 80%;
     color: #FFF;
     font-size: 16px;
 `;
@@ -50,4 +54,15 @@ export const Title = styled.Text`
     font-size: 33px;
     font-weight: bold;
     color: #1CCBAE;
+`;
+
+export const OpenWebView = styled.TouchableOpacity`
+    background-color: #1CCBAE;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    width: 45px;
+    border-radius: 7px;
+    padding: 0 5px;
+    margin-left: 10px;
 `;

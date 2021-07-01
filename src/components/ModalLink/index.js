@@ -2,10 +2,9 @@ import React from 'react'
 import { TouchableOpacity, View, TouchableWithoutFeedback, Share } from 'react-native'
 import { Feather } from '@expo/vector-icons'
 import Clipboard from 'expo-clipboard'
-import { ModalContainer, Container, Header, LinkArea, ShortLinkArea, ShortLinkUrl, Title, LongUrl } from './styles'
+import { ModalContainer, Container, Header, LinkArea, ActionArea, ShortLinkArea, ShortLinkUrl, Title, LongUrl, OpenWebView } from './styles'
 
-
-export default function ModalLink({ onClose, data }) {
+export default function ModalLink({ onClose, data, navigation }) {
 
     function copyLink() {
         Clipboard.setString(data.link)
@@ -24,7 +23,7 @@ export default function ModalLink({ onClose, data }) {
                 } else {
                     console.log('Será compartilhado.')
                 }
-            }else if(result.action === Share.dismissedAction){
+            } else if (result.action === Share.dismissedAction) {
                 console.log('Modal foi fechado.')
             }
         } catch (error) {
@@ -57,19 +56,35 @@ export default function ModalLink({ onClose, data }) {
                 <LinkArea>
                     <Title>Link encurtado:</Title>
                     <LongUrl numberOfLines={1}>{data.long_url}</LongUrl>
-                    <ShortLinkArea
-                        activeOpacity={1}
-                        onPress={copyLink}
-                    >
-                        <ShortLinkUrl numberOfLines={1}>{data.link}</ShortLinkUrl>
-                        <TouchableOpacity onPress={copyLink}>
+                    <ActionArea>
+                        <ShortLinkArea
+                            activeOpacity={1}
+                            onPress={copyLink}
+                        >
+                            <ShortLinkUrl numberOfLines={1}>{data.link}</ShortLinkUrl>
+                            <TouchableOpacity
+                                onPress={copyLink}>
+                                <Feather
+                                    name="copy"
+                                    color="#FFF"
+                                    size={25}
+                                />
+                            </TouchableOpacity>
+                        </ShortLinkArea>
+
+                        <OpenWebView
+                            onPress={() => {
+                                onClose()
+                                navigation.navigate("WebView", { link: data.link })
+                            }
+                            }>
                             <Feather
-                                name="copy"
+                                name="external-link"
                                 color="#FFF"
                                 size={25}
                             />
-                        </TouchableOpacity>
-                    </ShortLinkArea>
+                        </OpenWebView>
+                    </ActionArea>
                 </LinkArea>
             </Container>
         </ModalContainer>

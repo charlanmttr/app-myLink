@@ -6,6 +6,8 @@ export const ItemArea = styled.TouchableOpacity`
     margin: 7px 10px;
     background-color: rgba(255,255,255, 0.30);
     border-radius: 7px;
+    height: 45px;
+    align-items: center;
 `;
 
 export const LinkText = styled.Text`
@@ -22,4 +24,4 @@ export const ActionContainer = styled.TouchableOpacity`
     background-color: red;
     justify-content: center;
     align-items: center ;
-`; 
+`;

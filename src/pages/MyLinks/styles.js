@@ -15,15 +15,17 @@ export const Title = styled.Text`
 `;
 
 export const ContainerEmpty = styled.View`
+    background-color: rgba(255,255,255, 0.30);
     padding: 10px;
     margin: 7px 20px;
     border-radius: 7px;
-    background-color: rgba(255,255,255, 0.30);
+    height: 45px;
+    justify-content: center;
 `;  
 
 export const WarningText = styled.Text`
     color: white;
-    font-size: 15px;
+    font-size: 17px;
 `;
 
 export const ListLinks = styled.FlatList``;

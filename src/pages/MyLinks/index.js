@@ -10,7 +10,7 @@ import Menu from '../../components/Menu'
 import StatusBarPage from '../../components/StatusBarPage'
 import ListItem from '../../components/ListItem'
 
-export default function MyLinks() {
+export default function MyLinks({ navigation }) {
     /* garante que toda vez que a pagina for "focada" o useEffect seja executado novamente */
     const isFocused = useIsFocused();
 
@@ -80,6 +80,7 @@ export default function MyLinks() {
                 <ModalLink
                     onClose={() => setModalVisible(false)}
                     data={modalData}
+                    navigation={navigation}
                 />
             </Modal>
         </Container>
